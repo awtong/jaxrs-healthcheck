@@ -8,19 +8,22 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.NONE)
 public class HealthRegistry {
     @XmlElement(name = "status")
-    private final Collection<HealthStatus> statuses = new HashSet<>();
+    private Collection<HealthStatus> statuses;
 
     public boolean addStatuses(final Collection<HealthStatus> statuses) {
+	if (this.statuses == null) {
+	    this.statuses = new HashSet<>();
+	}
+
 	return (statuses != null) && this.statuses.addAll(statuses);
     }
 
     /**
      *
-     * @return collection of HealthStatus objects. Will never return
-     *         <code>null</code>
+     * @return collection of HealthStatus objects.
      */
     public Collection<HealthStatus> getStatuses() {
-	return this.statuses;
+	return this.statuses == null ? Collections.emptyList() : this.statuses;
     }
 
     @XmlElement(name = "successful")

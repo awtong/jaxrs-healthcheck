@@ -22,8 +22,8 @@ configurations {
 }
 
 dependencies {
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
-    compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.17'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    compile group: 'io.swagger', name: 'swagger-annotations', version: swaggerVersion
     
     compile group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1'
 
@@ -31,8 +31,8 @@ dependencies {
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.+'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.+'
 
-    testRuntime group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.+'
-    testRuntime group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: '2.25.1'
+    testRuntime group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
+    testRuntime group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: jerseyVersion
 }
 
 task sourceJar(type: Jar) {
